@@ -15,13 +15,14 @@ void setup()
 	Serial.begin(9600);
 	pinMode(LED1, OUTPUT);
 	pinMode(LED2, OUTPUT);
+	pinMode(LED3, OUTPUT);
 }
 
 void loop()
 {
 	g_Num.check();
 	g_PinFlash.check();
-	short int i;
+	int8_t i;
 
 	for (i = 0; i <= 125; i += 5)
 	{
@@ -30,7 +31,7 @@ void loop()
 
 		analogWrite(LED1, i);
 		analogWrite(LED2, (i - 125 < 0 ? -(i - 125) : i - 125));
-		delay(20);
+		delay(10);
 	}
 
 	for (i = 125; i >= 0; i -= 5)
@@ -40,7 +41,7 @@ void loop()
 
 		analogWrite(LED1, i);
 		analogWrite(LED2, (i - 125 < 0 ? -(i - 125) : i - 125));
-		delay(20);
+		delay(10);
 	}
 }
 

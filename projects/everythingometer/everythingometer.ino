@@ -12,10 +12,10 @@ typedef enum
 	State_TemperatureC,
 	State_Humidity,
 	STATE_LENGTH
-} PinState;
+} pinstate_t;
 
 // Global singleton to handle display option
-volatile PinState g_PinState;
+volatile pinstate_t g_PinState;
 
 MicroOLED led(PIN_LED1, PIN_LED2);
 
@@ -72,7 +72,7 @@ void loop()
 
 void changestate()
 {
-	g_PinState = /*static_cast< PinState >*/ ( PinState ) g_PinState + 1;
+	g_PinState = /*static_cast< pinstate_t >*/ ( pinstate_t ) g_PinState + 1;
 
 	if (g_PinState == STATE_LENGTH)
 		g_PinState = State_TemperatureF;
